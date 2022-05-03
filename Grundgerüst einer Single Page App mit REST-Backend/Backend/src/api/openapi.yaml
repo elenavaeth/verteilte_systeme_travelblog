@@ -1,11 +1,9 @@
 openapi: 3.0.0
 info:
-  title: MyAPP
+  title: TravelblogApp
   description: "__ TODO: Diese Datei durch eine eigene API-Spezifikation ersetzen. __"
   contact:
-    name: Dennis Schulmeister-Zimolong
-    url: https://www.wpvs.de
-    email: dhbw@windows3.de
+    name: Huema Yilmaz, Elena Vaeth, Ayse Kocak
   license:
     name: CC-BY-4.0
     url: https://creativecommons.org/licenses/by/4.0/deed.de
@@ -13,7 +11,8 @@ info:
 servers:
 - url: http://localhost:3000
 tags:
-- name: Beispiel
+- name: Index
+- name: Reise
 paths:
   /:
     get:
@@ -32,6 +31,194 @@ paths:
                 items:
                   $ref: '#/components/schemas/HATEOAS_Collection'
                 x-content-type: application/json
+ /travel:
+    get:
+      tags:
+      - Reise
+      summary: Reise suchen
+      description: Suche nach Reisen. Gibt eine Liste aller Reisen passend zu
+        den übergebenen Suchkriterien zurück.
+      operationId: search-travel
+      parameters:
+      - name: title
+        in: query
+        description: Titel
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: author
+        in: query
+        description: Autor
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: description
+        in: query
+        description: Beschreibung der Reise
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: place
+        in: query
+        description: Ort der Reise
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      - name: time
+        in: query
+        description: Aufenthaltsdauer
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Address'
+                x-content-type: application/json
+    post:
+      tags:
+      - Reise
+      summary: Reise anlegen
+      description: "Neue Reise anlegen. Speichert die übergebene Reise in der\
+        \ Datenbank. Der Wert des Feldes \"_id\" wird dabei ignoriert, da in jedem Fall\
+        \ eine neue Reise mit neuer ID angelegt wird."
+      operationId: create-travel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Travel'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Travel'
+
+  /travel/{id}:
+    get:
+      tags:
+      - Reise
+      summary: Reise lesen
+      description: Liest eine einzelne Reise vom Server.
+      operationId: get-travel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Travel'
+        "404":
+          description: Not Found
+    put:
+      tags:
+      - Reise überschreiben
+      summary: ""
+      description: "Überschreibt eine vorhandene Reise auf dem Server. Bis auf die\
+        \ ID können alle Felder geändert werden. Der Versuch, die ID zu ändern, wird\
+        \ vom Server stillschweigend ignoriert."
+      operationId: update-travel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Travel'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Travel'
+        "404":
+          description: Not Found
+    patch:
+      tags:
+      - Einzelne Felder ändern
+      summary: Einzelne Reisefelder ändern
+      description: "Ändert einzelne Felder einer vorhandenen Reise. Zulässig sind\
+        \ alle Felder bis auf die ID, da diese nachträglich nicht mehr verändert werden\
+        \ darf."
+      operationId: patch-travel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Travel'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Travel'
+        "404":
+          description: Not Found
+    delete:
+      tags:
+      - Reise
+      summary: Reise löschen
+      description: Löscht eine Reise auf dem Server.
+      operationId: delete-travel
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+
 
 components:
   schemas:
