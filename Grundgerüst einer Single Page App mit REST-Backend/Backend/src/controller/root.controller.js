@@ -30,13 +30,12 @@ export default class RootController {
      * so dass Clients die URL-Struktur des Webservices entdecken können).
      */
     async index(req, res, next) {
-        //// TODO: Example-Collection hier durch eigene Collections ersetzen ////
         res.sendResult([
-            // {
-            //     _name: "example",
-            //     query: {url: "/example", method: "GET", queryParams: ["search"]},
-            //     create: {url: "/example", method: "POST"},
-            // }
+            {
+                _name: "travel",
+                query: {url: "/travel", method: "GET", query_params: ["search", "title", "author", "description", "place", "time"]},
+                create: {url: "/travel", method: "POST"},
+            }
         ]);
 
         next();

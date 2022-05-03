@@ -1,6 +1,6 @@
 "use strict"
 
-import TravelService from "../service/travelservice";
+import TravelService from "../service/travelservice.js";
 import {wrapHandler} from "../utils.js";
 import RestifyError from "restify-errors";
 

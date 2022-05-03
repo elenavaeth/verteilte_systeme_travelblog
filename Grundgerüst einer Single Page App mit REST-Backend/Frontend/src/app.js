@@ -26,9 +26,13 @@ class App {
             {
                 url: "^/$",
                 show: () => this._gotoList()
-            },
-            //// TODO: Eigene Routing-Regeln hier in der Mitte einfügen ////
-            {
+            },{
+                url: "^/new/$",
+                show: () => this._gotoNew()
+            },{
+                url: "^/edit/(.*)$",
+                show: matches => this._gotoEdit(matches[1]),
+            },{
                 url: ".*",
                 show: () => this._gotoList()
             },
@@ -69,6 +73,41 @@ class App {
             let page = new PageList(this);
             await page.init();
             this._showPage(page, "list");
+        } catch (ex) {
+            this.showException(ex);
+        }
+    }
+    /**
+     * Seite zum Anlegen einer neuen Adresse anzeigen.  Wird vom Single Page
+     * Router aufgerufen.
+     */
+    async _gotoNew() {
+        try {
+            // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
+            let {default: PageEdit} = await import("./page-edit/page-edit.js");
+
+            let page = new PageEdit(this);
+            await page.init();
+            this._showPage(page, "new");
+        } catch (ex) {
+            this.showException(ex);
+        }
+    }
+
+    /**
+     * Seite zum Bearbeiten einer Adresse anzeigen.  Wird vom Single Page
+     * Router aufgerufen.
+     *
+     * @param {Number} id ID der zu bearbeitenden Adresse
+     */
+    async _gotoEdit(id) {
+        try {
+            // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
+            let {default: PageEdit} = await import("./page-edit/page-edit.js");
+
+            let page = new PageEdit(this, id);
+            await page.init();
+            this._showPage(page, "edit");
         } catch (ex) {
             this.showException(ex);
         }
