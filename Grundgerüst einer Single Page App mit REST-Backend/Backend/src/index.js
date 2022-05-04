@@ -92,7 +92,7 @@ server.use(OpenApiEnforcerMiddleware(openApiEnforcer));
 
 // HTTP-Controller registrieren
 
-new RootController(server, "/");
+new RootController(server, "/", openApiFile);
 
 new TravelController(server, "/travel");
 

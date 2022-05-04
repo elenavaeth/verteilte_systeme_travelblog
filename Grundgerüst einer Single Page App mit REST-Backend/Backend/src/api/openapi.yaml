@@ -258,5 +258,31 @@ components:
           type: array
           items:
             type: string
-
+    Travel:
+      title: Reise
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HATEOAS_Resource'
+        _id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        description:
+          type: string
+        place:
+          type: string
+        time:
+          type: string
+      required:
+        - place
+      example:
+        _id: "1"
+        title: "Meine Reise"
+        author: "Elena"
+        description: "..."
+        place: "Spanien"
+        time: "10 Tage"
   securitySchemes: {}
