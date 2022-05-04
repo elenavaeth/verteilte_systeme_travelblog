@@ -276,10 +276,8 @@ components:
           type: string
         time:
           type: string
-      required:
-        - place
       example:
-        _id: "1"
+        _id: "621ff9a936997df5baba746e"
         title: "Meine Reise"
         author: "Elena"
         description: "..."

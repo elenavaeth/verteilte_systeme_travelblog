@@ -23,7 +23,7 @@
         background-color: #fafafa;
     }
 
-    main .name {
+    main .title {
         font-size: 150%;
     }
 
@@ -63,21 +63,27 @@
     <ol>
         <!-- Platzhalter für eine leere Liste -->
         <li class="empty-placeholder">
-            <div class="name">
+            <div class="title">
                 Keine Einträge vorhanden
             </div>
         </li>
 
         <!-- Vorlage für einen Eintrag in der Liste -->
         <li class="list-entry" data-id="$ID$">
-            <div class="name">
-                $LAST_NAME$, $FIRST_NAME$
+            <div class="title">
+                $TITLE$
             </div>
-            <div class="field phone">
-                $PHONE$
+            <div class="author">
+                $AUTHOR$
             </div>
-            <div class="field email">
-                $EMAIL$
+            <div class="description">
+                $DESCRIPTION$
+            </div>
+            <div class="place">
+                $PLACE$
+            </div>
+            <div class="time">
+                $TIME$
             </div>
             <div class="actions">
                 <div class="action edit">
