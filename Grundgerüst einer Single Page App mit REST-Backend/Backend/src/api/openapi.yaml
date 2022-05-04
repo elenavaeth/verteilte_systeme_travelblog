@@ -31,7 +31,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/HATEOAS_Collection'
                 x-content-type: application/json
- /travel:
+  /travel:
     get:
       tags:
       - Reise
@@ -115,7 +115,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Travel'
 
- /travel/{id}:
+  /travel/{id}:
     get:
       tags:
       - Reise
