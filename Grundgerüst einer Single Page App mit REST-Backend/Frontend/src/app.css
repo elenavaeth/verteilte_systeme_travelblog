@@ -30,19 +30,19 @@ html {
 @media (min-width: 40em) {
     html {
         /* http://bg.siteorigin.com/ */
-        background-color: #669ac4;
-        background-image: url(img/background.png);
+        background-color: #D1F0FD;
+        background-image: url(img/travelbackground.png.jpg);
 
-        font-size: 11pt;
+        font-size: 12pt;
     }
 
     body {
         max-width: 40em;
         margin: 0 auto;
-        margin-top: 2em;
-        margin-bottom: 2em;
+        margin-top: 3em;
+        margin-bottom: 4em;
 
-        border: 1px solid #202020;
+        border: 1px solid #612c2c;
         box-shadow: 1px 1px 3px rgba(0,0,0, 0.5);
 
     }
@@ -52,10 +52,10 @@ html {
 nav {
     user-select: none;
 
-    background-color: #404040;
+    background-color: #143783;
     color: white;
 
-    border: 0px solid #202020;
+    border: 0px solid #143783;
     border-bottom-width: 3px;
 }
 
@@ -65,7 +65,7 @@ nav a:hover {
     color: white;
     text-decoration: none;
 
-    display: block;
+    display: inline-flex;
     padding: 1em;
 }
 
@@ -83,13 +83,13 @@ nav ul {
 }
 
 nav li.active {
-    background-color: #333333;
+    background-color: #6b86c2;
     border: 0px solid rgb(33, 146, 187);
     border-bottom-width: 3px;
 }
 
 nav li:hover {
-    background-color: #505050;
+    background-color: #201f5e;
 
     border: 0px solid rgb(103, 197, 231);
     border-bottom-width: 3px;
