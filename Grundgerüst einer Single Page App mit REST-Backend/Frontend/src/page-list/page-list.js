@@ -59,6 +59,7 @@ export default class PageList extends Page {
             html = html.replace("$DESCRIPTION$", dataset.description);
             html = html.replace("$PLACE$", dataset.place);
             html = html.replace("$TIME$", dataset.time);
+            html = html.replace("$PIC$", dataset.pic);
 
             // Element in die Liste einfügen
             let dummyElement = document.createElement("div");
