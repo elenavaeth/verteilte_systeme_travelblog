@@ -8,6 +8,7 @@ import OpenApiEnforcerMiddleware from "@dschulmeis/restify-openapi-enforcer-midd
 import DatabaseFactory from "./database.js";
 import RootController from "./controller/root.controller.js";
 import TravelController from "./controller/travel.controller.js";
+import WishController from "./controller/wish.controller.js";
 
 // Verzeichnisnamen der Quellcodedatei ermitteln
 import path from "path";
@@ -95,6 +96,8 @@ server.use(OpenApiEnforcerMiddleware(openApiEnforcer));
 new RootController(server, "/", openApiFile);
 
 new TravelController(server, "/travel");
+
+new WishController(server, "/wish")
 
 // Server tatsächlich starten
 server.listen(config.port, config.host, function() {

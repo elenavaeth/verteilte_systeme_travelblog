@@ -30,22 +30,6 @@ export default class Backend {
         }
     }
 
-    /**
-     * Low-level Wrapper um die Fetch API, um diese bei jeder Verwendung mit
-     * denselben Parametern zu versorgen. Aufrufbeispiel:
-     *
-     *   * backend.fetch("GET", "/address");
-     *   * backend.fetch("GET", "/address", {query: {first_name: "Test"}});
-     *   * backend.fetch("PUT", "/address", {body: { ... }});
-     *
-     * Über das Options-Objekt können Query-Parameter mitgegeben werden, die
-     * als URL-Parameter angehängt werden, sowie Daten, die nach JSON konvertiert
-     * in den Request Body übernommen werden.
-     *
-     * @param {string} url Aufzurufende URL (ohne den Prefix aus `this._url`)
-     * @param {object} options Konfigurationswerte (optional)
-     * @returns {Promise} Ergebnis des eigentlichen fetch()-Aufrufs
-     */
     async fetch(method, url, options) {
         options = options || {};
 

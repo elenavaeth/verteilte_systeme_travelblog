@@ -32,10 +32,11 @@ class App {
             },{
                 url: "^/edit/(.*)$",
                 show: matches => this._gotoEdit(matches[1]),
-            },{
-                url: ".*",
-                show: () => this._gotoList()
             },
+            {
+                url: ".wish",
+                show: () => this._gotoWishlist()
+            }
         ]);
 
         // Fenstertitel merken, um später den Name der aktuellen Seite anzuhängen
@@ -112,6 +113,24 @@ class App {
             this.showException(ex);
         }
     }
+
+    /**
+     * Wunschliste zum Anzeigen der favorisierten Reisen.  Wird vom Single Page
+     * Router aufgerufen.
+     */
+    async _gotoWishlist() {
+        try {
+            // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
+            let {default: PageEdit} = await import("./wish-list/wish-list.js");
+
+            let page = new PageEdit(this);
+            await page.init();
+            this._showPage(page, "wish");
+        } catch (ex) {
+            this.showException(ex);
+        }
+    }
+
 
     /**
      * Interne Methode zum Umschalten der sichtbaren Seite.

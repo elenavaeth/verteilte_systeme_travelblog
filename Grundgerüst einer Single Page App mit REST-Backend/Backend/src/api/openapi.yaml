@@ -218,7 +218,193 @@ paths:
           description: OK
         "404":
           description: Not Found
+  /wish:
+    get:
+      tags:
+        - Wunsch
+      summary: Wunsch suchen
+      description: Suche nach Wünschen. Gibt eine Liste aller Wünsche passend zu
+        den übergebenen Suchkriterien zurück.
+      operationId: search-wish
+      parameters:
+        - name: title
+          in: query
+          description: Titel
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: author
+          in: query
+          description: Autor
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: description
+          in: query
+          description: Beschreibung der Reise
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: place
+          in: query
+          description: Ort der Reise
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: time
+          in: query
+          description: Aufenthaltsdauer
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Wish'
+                x-content-type: application/json
+    post:
+      tags:
+        - Wunsch
+      summary: Wunsch anlegen
+      description: "Neuen Wunsch anlegen. Speichert die übergebene Reise in der\
+          \ Datenbank. Der Wert des Feldes \"_id\" wird dabei ignoriert, da in jedem Fall\
+          \ eine neue Reise mit neuer ID angelegt wird."
+      operationId: create-wunsch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Wish'
+      responses:
+        "201":
+          description: Created
+          headers:
+            Location:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wish'
 
+  /wish/{id}:
+      get:
+        tags:
+          - Wunsch
+        summary: Wunsch lesen
+        description: Liest einen einzelnen Wunsch vom Server.
+        operationId: get-wish
+        parameters:
+          - name: id
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Wish'
+          "404":
+            description: Not Found
+      put:
+        tags:
+          - Wunsch überschreiben
+        summary: ""
+        description: "Überschreibt einen vorhandenen Wunsch auf dem Server. Bis auf die\
+          \ ID können alle Felder geändert werden. Der Versuch, die ID zu ändern, wird\
+          \ vom Server stillschweigend ignoriert."
+        operationId: update-wish
+        parameters:
+          - name: id
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wish'
+        responses:
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Wish'
+          "404":
+            description: Not Found
+      patch:
+        tags:
+          - Einzelne Wünsche ändern
+        summary: Einzelne Wunschfelder ändern
+        description: "Ändert einzelne Felder eines vorhandenen Wunsches. Zulässig sind\
+          \ alle Felder bis auf die ID, da diese nachträglich nicht mehr verändert werden\
+          \ darf."
+        operationId: patch-wish
+        parameters:
+          - name: id
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wish'
+        responses:
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Wish'
+          "404":
+            description: Not Found
+      delete:
+        tags:
+          - Wunsch
+        summary: Wunsch löschen
+        description: Löscht einen Wunsch auf dem Server.
+        operationId: delete-wish
+        parameters:
+          - name: id
+            in: path
+            required: true
+            style: simple
+            explode: false
+            schema:
+              type: string
+        responses:
+          "200":
+            description: OK
+          "404":
+            description: Not Found
 
 components:
   schemas:
@@ -260,6 +446,31 @@ components:
             type: string
     Travel:
       title: Reise
+      type: object
+      properties:
+        _links:
+          $ref: '#/components/schemas/HATEOAS_Resource'
+        _id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        description:
+          type: string
+        place:
+          type: string
+        time:
+          type: string
+      example:
+        _id: "621ff9a936997df5baba746e"
+        title: "Meine Reise"
+        author: "Elena"
+        description: "..."
+        place: "Spanien"
+        time: "10 Tage"
+    Wish:
+      title: Wunsch
       type: object
       properties:
         _links:

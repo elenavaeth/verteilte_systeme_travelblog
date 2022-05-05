@@ -21,6 +21,7 @@ class DatabaseFactory {
         this.client = new MongoClient(connectionUrl);
         await this.client.connect();
         this.database = this.client.db("travelblog");
+        this.database = this.client.db("wishlist")
 
         await this._createDemoData();
     }
@@ -32,6 +33,7 @@ class DatabaseFactory {
      */
     async _createDemoData() {
         let travels = this.database.collection("travels");
+        let wishes = this.database.collection("wishes")
 
         if (await travels.estimatedDocumentCount() === 0) {
             travels.insertMany([
@@ -72,6 +74,17 @@ class DatabaseFactory {
                     time: "1 Wochen",
                 },
 
+            ]);
+        }
+        if (await wishes.estimatedDocumentCount() === 0) {
+            wishes.insertMany([
+                {
+                    title: "In der Hauptstadt Florenz der Region Toskana",
+                    author: "Elena Väth",
+                    description: "Florenz ist vor allem bekannt für seine zahlreichen Kunst- und Architektur-Meisterwerke. Zu den berühmtesten Sehenswürdigkeiten zählt die Kathedrale Duomo. Atemberaubende Arbeit des Baumeisters Brunelleschi!Die Galleria dell'Accademia zeigt Michelangelos Statue David. Ebenfalss ein toller Hotspot.",
+                    place: "Florenz - Italien",
+                    time: "2 Wochen",
+                }
             ]);
         }
     }

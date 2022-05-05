@@ -1,12 +1,12 @@
 "use strict";
 
 import Page from "../page.js";
-import HtmlTemplate from "./page-list.html";
+import HtmlTemplate from "./wish-list.html";
 
 /**
- * Klasse PageList: Stellt die Listenübersicht zur Verfügung
+ * Klasse WishList: Stellt die Wunschlistenübersicht zur Verfügung
  */
-export default class PageList extends Page {
+export default class WishList extends Page {
     /**
      * Konstruktor.
      *
@@ -31,10 +31,10 @@ export default class PageList extends Page {
     async init() {
         // HTML-Inhalt nachladen
         await super.init();
-        this._title = "Reisen";
+        this._title = "Wunschliste";
 
         // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
-        let data = await this._app.backend.fetch("GET", "/travel");
+        let data = await this._app.backend.fetch("GET", "/wish");
         this._emptyMessageElement = this._mainElement.querySelector(".empty-placeholder");
 
         if (data.length) {
@@ -59,7 +59,6 @@ export default class PageList extends Page {
             html = html.replace("$DESCRIPTION$", dataset.description);
             html = html.replace("$PLACE$", dataset.place);
             html = html.replace("$TIME$", dataset.time);
-            html = html.replace("$PIC$", dataset.pic);
 
             // Element in die Liste einfügen
             let dummyElement = document.createElement("div");
@@ -69,7 +68,6 @@ export default class PageList extends Page {
             olElement.appendChild(liElement);
 
             // Event Handler registrieren
-            liElement.querySelector(".action.edit").addEventListener("click", () => location.hash = `#/edit/${dataset._id}`);
             liElement.querySelector(".action.delete").addEventListener("click", () => this._askDelete(dataset._id));
         }
     }
@@ -81,12 +79,12 @@ export default class PageList extends Page {
      */
     async _askDelete(id) {
         // Sicherheitsfrage zeigen
-        let answer = confirm("Soll die ausgewählte Reise wirklich gelöscht werden?");
+        let answer = confirm("Soll der ausgewählte Wunsch wirklich gelöscht werden?");
         if (!answer) return;
 
         // Datensatz löschen
         try {
-            this._app.backend.fetch("DELETE", `/travel/${id}`);
+            this._app.backend.fetch("DELETE", `/wish/${id}`);
         } catch (ex) {
             this._app.showException(ex);
             return;
@@ -101,6 +99,4 @@ export default class PageList extends Page {
             this._emptyMessageElement.classList.remove("hidden");
         }
     }
-
-    
 };
