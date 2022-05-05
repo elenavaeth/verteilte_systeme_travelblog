@@ -71,6 +71,7 @@ export default class PageList extends Page {
             // Event Handler registrieren
             liElement.querySelector(".action.edit").addEventListener("click", () => location.hash = `#/edit/${dataset._id}`);
             liElement.querySelector(".action.delete").addEventListener("click", () => this._askDelete(dataset._id));
+            liElement.querySelector(".action.like").addEventListener("click", () => this._addToWishlist(dataset._id));
         }
     }
     /**
@@ -102,5 +103,29 @@ export default class PageList extends Page {
         }
     }
 
+    /**
+     * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
+     * die Adresse löschen will und löscht diese dann.
+     *
+     * @param {Integer} id ID des zu löschenden Datensatzes
+     */
+    async _addToWishlist(id) {
+        // Sicherheitsfrage zeigen
+        let answer = confirm("Soll die ausgewählte Reise wirklich zur Wunschliste hinzugefügt werden werden?");
+        if (!answer) return;
+
+        // Datensatz speichern
+        let dataset = await this._app.backend.fetch("GET", `/travel/${id}`);
+
+        try {
+            await this._app.backend.fetch("POST", `/wish`, {body: dataset});
+        } catch (ex) {
+            this._app.showException(ex);
+            return;
+        }
+
+        // Navigiere zur Wunschliste
+        location.hash = "#/wish";
+    }
     
 };

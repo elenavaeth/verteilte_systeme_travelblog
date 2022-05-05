@@ -121,9 +121,9 @@ class App {
     async _gotoWishlist() {
         try {
             // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
-            let {default: PageEdit} = await import("./wish-list/wish-list.js");
+            let {default: WishList} = await import("./wish-list/wish-list.js");
 
-            let page = new PageEdit(this);
+            let page = new WishList(this);
             await page.init();
             this._showPage(page, "wish");
         } catch (ex) {

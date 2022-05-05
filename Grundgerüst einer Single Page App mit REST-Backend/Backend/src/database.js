@@ -21,7 +21,6 @@ class DatabaseFactory {
         this.client = new MongoClient(connectionUrl);
         await this.client.connect();
         this.database = this.client.db("travelblog");
-        this.database = this.client.db("wishlist")
 
         await this._createDemoData();
     }
