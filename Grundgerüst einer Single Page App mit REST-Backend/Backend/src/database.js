@@ -41,6 +41,7 @@ class DatabaseFactory {
                     description: "Florenz ist vor allem bekannt für seine zahlreichen Kunst- und Architektur-Meisterwerke. Zu den berühmtesten Sehenswürdigkeiten zählt die Kathedrale Duomo. Atemberaubende Arbeit des Baumeisters Brunelleschi!Die Galleria dell'Accademia zeigt Michelangelos Statue David. Ebenfalss ein toller Hotspot.",
                     place: "Florenz - Italien",
                     time: "2 Wochen",
+                    pic: URL(florenz.jpg),
                 },
                 {
                     title: "Mexiko und seine Fassetten",
@@ -57,7 +58,7 @@ class DatabaseFactory {
                     time: "2 Wochen",
                 },
                 {
-                    title: "Zwishen den Wolkenkratzern in New York",
+                    title: "Zwischen den Wolkenkratzern in New York",
                     author: "Hüma Yilmaz",
                     description: "The Edge Aussichtsplattform: die höchste offene Plattform in New York, mein absolutes Highlight, aber leider sehr voll. Der Blick von der Aussichtsplattform des Empire State Buildings ist atemberaubend und etwas, was du sicherlich nicht so schnell vergessen wirst. Ein absolutes Muss bei einem Besuch in New York! Um auch hier längere Wartezeiten zu vermeiden am besten früh am morgen schon kommen. Die Resie war viel zu kurz, nehmt euch für eine so große, überweltigende Stadt auf jeden Fall mehr Zeit.",
                     place: "New York - USA",
