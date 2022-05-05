@@ -47,7 +47,8 @@ class DatabaseFactory {
                 {
                     title: "Mexiko und seine Fassetten",
                     author: "Ayse Kocak",
-                    description: "Mexiko-City eine so lebendige, kosmopolitische Stadt. Ich habe die Tacos und das unglaubliche Street Food, das man praktisch an jeder Ecke finden kann, schon immer geliebt, aber jetzt dekonstruieren Köche wie Enrique Olvera klassische Rezepte und bringen sie auf die nächste Ebene. Dann gibt es die Kunstszene, in der es nicht mehr nur um ikonische Künstler des 20. Jahrhunderts wie Frida Kahlo und Diego Rivera geht, sondern um neue Kunstinstitutionen von Weltklasse wie das Soumaya und das Museo Jumex, die beide in den letzten fünf Jahren entstanden sind. Auf jedan Fall nennenswerte Zwischenziele.",
+                    description: "Mexiko-City eine so lebendige, kosmopolitische Stadt. Ich habe die Tacos und das unglaubliche Street Food, das man praktisch an jeder Ecke finden kann, schon immer geliebt, aber jetzt dekonstruieren Köche wie Enrique Olvera klassische Rezepte und bringen sie auf die nächste Ebene.
+                                  Dann gibt es die Kunstszene, in der es nicht mehr nur um ikonische Künstler des 20. Jahrhunderts wie Frida Kahlo und Diego Rivera geht, sondern um neue Kunstinstitutionen von Weltklasse wie das Soumaya und das Museo Jumex, die beide in den letzten fünf Jahren entstanden sind. Auf jedan Fall nennenswerte Zwischenziele.",
                     place: "Mexiko-City",
                     time: " 10 Tage",
                 },
