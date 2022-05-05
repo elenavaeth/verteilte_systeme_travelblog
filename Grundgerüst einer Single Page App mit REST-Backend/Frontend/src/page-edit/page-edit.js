@@ -26,6 +26,7 @@ export default class PageEdit extends Page {
             description: "",
             place: "",
             time: "",
+            pic: "",
         };
 
         // Eingabefelder
@@ -34,6 +35,7 @@ export default class PageEdit extends Page {
         this._descriptionInput     = null;
         this._placeInput     = null;
         this._timeInput     = null;
+        this._picInput = null;
     }
 
     /**
@@ -72,6 +74,7 @@ export default class PageEdit extends Page {
         html = html.replace("$DESCRIPTION$", this._dataset.description);
         html = html.replace("$PLACE$", this._dataset.place);
         html = html.replace("$TIME$", this._dataset.time);
+        html = html.replace("$PIC$", this._dataset.pic);
         this._mainElement.innerHTML = html;
 
         // Event Listener registrieren
@@ -84,6 +87,7 @@ export default class PageEdit extends Page {
         this._descriptionInput     = this._mainElement.querySelector("input.description");
         this._placeInput     = this._mainElement.querySelector("input.place");
         this._timeInput     = this._mainElement.querySelector("input.time");
+        this._picInput = this._mainElement.querySelector("input.pic");
     }
 
     /**
@@ -98,6 +102,7 @@ export default class PageEdit extends Page {
         this._dataset.description      = this._descriptionInput.value.trim();
         this._dataset.place      = this._placeInput.value.trim();
         this._dataset.time     = this._timeInput.value.trim();
+        this._dataset.pic     = this._picInput.value.trim();
 
         if (!this._dataset.title) {
             alert("Geben Sie erst einen Titel ein.");
