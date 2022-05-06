@@ -50,7 +50,6 @@ export default class TravelService {
             description: travel.description || "",
             place: travel.place             || "",
             time: travel.time               || "",
-            pic: travel.pic                 || "",
             
         };
 
@@ -90,7 +89,6 @@ export default class TravelService {
         if (travel.description) updateDoc.$set.description  = travel.description;
         if (travel.place)updateDoc.$set.place = travel.place;
         if (travel.time) updateDoc.$set.time = travel.time; 
-        if (travel.pic) updateDoc.$set.pic = travel.pic; 
 
         await this._travels.updateOne({_id: new ObjectId(id)}, updateDoc);
         return this._travels.findOne({_id: new ObjectId(id)});

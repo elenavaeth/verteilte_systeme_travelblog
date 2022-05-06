@@ -33,7 +33,7 @@ export default class RootController {
         res.sendResult([
             {
                 _name: "travel",
-                query: {url: "/travel", method: "GET", query_params: ["search", "title", "author", "description", "place", "time", "pic"]},
+                query: {url: "/travel", method: "GET", query_params: ["search", "title", "author", "description", "place", "time"]},
                 create: {url: "/travel", method: "POST"},
             },
             {
