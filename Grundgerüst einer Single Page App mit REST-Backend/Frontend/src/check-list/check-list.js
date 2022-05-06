@@ -79,7 +79,7 @@ export default class CheckList extends Page {
      */
     async _askDelete(id) {
         // Sicherheitsfrage zeigen
-        let answer = confirm("Soll der ausgewählte Wunsch wirklich gelöscht werden?");
+        let answer = confirm("Soll die abgeschlossene Reise aus der Liste gelöscht werden?");
         if (!answer) return;
 
         // Datensatz löschen

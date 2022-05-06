@@ -127,4 +127,5 @@ export default class PageList extends Page {
         location.hash = "#/wish";
     }
     
+    
 };

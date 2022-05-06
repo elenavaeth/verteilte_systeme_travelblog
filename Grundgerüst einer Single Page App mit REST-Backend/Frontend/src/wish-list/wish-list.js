@@ -69,6 +69,7 @@ export default class WishList extends Page {
 
             // Event Handler registrieren
             liElement.querySelector(".action.delete").addEventListener("click", () => this._askDelete(dataset._id));
+            liElement.querySelector(".action.check").addEventListener("click", () => this._addToChecklist(dataset._id));
         }
     }
     /**
