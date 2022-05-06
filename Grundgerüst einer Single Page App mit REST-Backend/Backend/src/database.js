@@ -42,7 +42,8 @@ class DatabaseFactory {
                     description: "Florenz ist vor allem bekannt für seine zahlreichen Kunst- und Architektur-Meisterwerke. Zu den berühmtesten Sehenswürdigkeiten zählt die Kathedrale Duomo. Atemberaubende Arbeit des Baumeisters Brunelleschi!Die Galleria dell'Accademia zeigt Michelangelos Statue David. Ebenfalss ein toller Hotspot.",
                     place: "Florenz - Italien",
                     time: "2 Wochen",
-                    pic: URL(florenz.jpg),
+                    pic: URL("file:///Users/aysekocak/Desktop/florenz.jpg"),
+                    
                 },
                 {
                     title: "Mexiko und seine Fassetten",

@@ -80,6 +80,14 @@ paths:
         explode: true
         schema:
           type: string
+      - name: pic
+        in: query
+        description: Bild
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
       responses:
         "200":
           description: OK
@@ -262,6 +270,14 @@ paths:
         - name: time
           in: query
           description: Aufenthaltsdauer
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: pic
+          in: query
+          description: Bild
           required: false
           style: form
           explode: true
