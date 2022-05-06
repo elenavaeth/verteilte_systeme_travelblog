@@ -5,7 +5,7 @@ import {wrapHandler} from "../utils.js";
 import RestifyError from "restify-errors";
 
 /**
- * HTTP-Controller-Klasse für Adressbucheinträge. Diese Klasse registriert
+ * HTTP-Controller-Klasse für Abgeschlossenen Reise-Einträge. Diese Klasse registriert
  * alle notwendigen URL-Handler beim Webserver für einen einfachen REST-
  * Webservice zum Lesen und Schreiben von Adressen.
  */
@@ -20,11 +20,11 @@ import RestifyError from "restify-errors";
         this._service = new CheckService();
         this._prefix = prefix;
 
-        // Collection: Reisen
+        
         server.get(prefix, wrapHandler(this, this.search));
         server.post(prefix, wrapHandler(this, this.create));
 
-        // Entity: Reisen
+        
         server.get(prefix + "/:id", wrapHandler(this, this.read));
         server.put(prefix + "/:id", wrapHandler(this, this.update));
         server.patch(prefix + "/:id", wrapHandler(this, this.update));
@@ -52,7 +52,7 @@ import RestifyError from "restify-errors";
 
     /**
      * GET /check
-     * Abgeschlossene suchen
+     * Abgeschlossene Reisen suchen
      */
     async search(req, res, next) {
         let result = await this._service.search(req.query);
@@ -78,7 +78,7 @@ import RestifyError from "restify-errors";
 
     /**
      * GET /check/:id
-     * Abgeschlossene auslesen
+     * Abgeschlossene Reisen auslesen
      */
     async read(req, res, next) {
         let result = await this._service.read(req.params.id);
@@ -96,7 +96,7 @@ import RestifyError from "restify-errors";
     /**
      * PUT /check/:id
      * PATCH /check/:id
-     * Abgeschlossene ändern
+     * Abgeschlossene Reisen ändern
      */
     async update(req, res, next) {
         let result = await this._service.update(req.params.id, req.body);
@@ -113,7 +113,7 @@ import RestifyError from "restify-errors";
 
     /**
      * DELETE /check/:id
-     * Abgeschlossee löschen
+     * Abgeschlossee Reisen löschen
      */
     async delete(req, res, next) {
         await this._service.delete(req.params.id)

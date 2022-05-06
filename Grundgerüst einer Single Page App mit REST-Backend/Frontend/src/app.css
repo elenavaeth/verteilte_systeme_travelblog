@@ -61,7 +61,7 @@ nav {
     user-select: auto;
 
     background-color: #143783;
-    color: rgb(169, 185, 236);
+    color: rgb(72, 88, 139);
 
     border: 0px solid #143783;
     border-bottom-width: 3px;
@@ -95,14 +95,14 @@ nav ul {
 
 nav li.active {
     background-color: #7695d8;
-    border: 0px solid rgb(33, 146, 187);
+    border: 0px solid rgb(113, 136, 241);
     border-bottom-width: 3px;
 }
 
 nav li:hover {
-    background-color: #35373b;
+    background-color: #798db8;
 
-    border: 0px solid rgb(103, 197, 231);
+    border: 0px solid rgb(164, 196, 245);
     border-bottom-width: 3px;
     text-align: center
 }

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: TravelblogApp
-  description: "Die Travelblog-App nutzt einen simplen REST-Webservices zur Kommunikation\
+  description: "Die Travelblog-App nutzt einen simplen REST-Webservice zur Kommunikation\
     \ mit dem Backend. Dieser ermöglicht die üblichen CRUD-Operationen zur Suche,\
     \ Anzeige, Bearbeitung und Löschung von Reisen, Wünschen und abgeschlossenen Reisen \
     \ wobei jede Reise, jede Wunschreise und jede abgeschlossene Reise aus Titel, Autor\

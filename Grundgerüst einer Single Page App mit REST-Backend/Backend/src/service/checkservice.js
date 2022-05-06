@@ -4,7 +4,7 @@ import DatabaseFactory from "../database.js";
 import {ObjectId} from "mongodb";
 
 /**
- * Geschäftslogik zur Verwaltung von Wünschen. Diese Klasse implementiert die
+ * Geschäftslogik zur Verwaltung von abgeschlossenen Reisen. Diese Klasse implementiert die
  * eigentliche Anwendungslogik losgelöst vom technischen Übertragungsweg.
  * Die Reisen werden der Einfachheit halber in einer MongoDB abgelegt.
  */
@@ -17,7 +17,7 @@ export default class CheckService {
     }
 
     /**
-     * Wunsch suchen. Unterstützt wird lediglich eine ganz einfache Suche,
+     * Abgeschlossene Reisen suchen. Unterstützt wird lediglich eine ganz einfache Suche,
      * bei der einzelne Felder auf exakte Übereinstimmung geprüft werden.
      * Zwar unterstützt MongoDB prinzipiell beliebig komplexe Suchanfragen.
      * Um das Beispiel klein zu halten, wird dies hier aber nicht unterstützt.
@@ -36,10 +36,10 @@ export default class CheckService {
     }
 
     /**
-     * Speichern eines neuen Wunsches.
+     * Speichern einer neuen abgeschlossenen Reise.
      *
-     * @param {Object} check Zu speichernde Wunschdaten
-     * @return {Promise} Gespeicherte Wunschdaten
+     * @param {Object} check Zu speichernde Reisedaten
+     * @return {Promise} Gespeicherte Reisedaten
      */
     async create(check) {
         check = check || {};
@@ -58,10 +58,10 @@ export default class CheckService {
     }
 
     /**
-     * Auslesen eines vorhandenen Wunsches anhand ihrer ID.
+     * Auslesen einer vorhandenen abgeschlossenen Reise anhand ihrer ID.
      *
-     * @param {String} id ID dem gesuchten Wunsch
-     * @return {Promise} Gefundene Wunschdaten
+     * @param {String} id ID der abgeschlossenen Reise
+     * @return {Promise} Gefundene Reisedaten
      */
     async read(id) {
         let result = await this._check.findOne({_id: new ObjectId(id)});
@@ -69,12 +69,12 @@ export default class CheckService {
     }
 
     /**
-     * Aktualisierung eines Wunsches, durch Überschreiben einzelner Felder
-     * oder des gesamten Wunschobjekts (ohne die ID).
+     * Aktualisierung einer abgeschlossenen Reise, durch Überschreiben einzelner Felder
+     * oder des gesamten Reiseobjekts (ohne die ID).
      *
-     * @param {String} id ID der gesuchten Wünsche
-     * @param {[type]} travel Zu speichernde Wunschdaten
-     * @return {Promise} Gespeicherte Wunschdaten oder undefined
+     * @param {String} id ID der gesuchten abgeschlossenen Reisen
+     * @param {[type]} travel Zu speichernde Reisedaten
+     * @return {Promise} Gespeicherte Reisedaten oder undefined
      */
     async update(id, check) {
         let oldCheck = await this._checks.findOne({_id: new ObjectId(id)});
@@ -95,9 +95,9 @@ export default class CheckService {
     }
 
     /**
-     * Löschen eines Wunsches anhand seiner ID.
+     * Löschen einer abgeschlossenen Reise anhand ihrer ID.
      *
-     * @param {String} id ID des gesuchten Wunsches
+     * @param {String} id ID der gesuchten abgeschlossenen Reise
      * @return {Promise} Anzahl der gelöschten Datensätze
      */
     async delete(id) {
