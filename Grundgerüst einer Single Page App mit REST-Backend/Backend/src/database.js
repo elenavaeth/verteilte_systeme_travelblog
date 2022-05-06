@@ -48,9 +48,11 @@ class DatabaseFactory {
                 {
                     title: "Mexiko und seine Fassetten",
                     author: "Ayse Kocak",
-                    description: "Mexiko-City eine so lebendige, kosmopolitische Stadt. Ich habe die Tacos und das unglaubliche Street Food, das man praktisch an jeder Ecke finden kann, schon immer geliebt, aber jetzt dekonstruieren Köche wie Enrique Olvera klassische Rezepte und bringen sie auf die nächste Ebene. Dann gibt es die Kunstszene, in der es nicht mehr nur um ikonische Künstler des 20. Jahrhunderts wie Frida Kahlo und Diego Rivera geht, sondern um neue Kunstinstitutionen von Weltklasse wie das Soumaya und das Museo Jumex, die beide in den letzten fünf Jahren entstanden sind. Auf jedan Fall nennenswerte Zwischenziele.",
+                    description: "Mexiko-City eine so lebendige, kosmopolitische Stadt. Ich habe die Tacos und das unglaubliche Street Food, das man praktisch an jeder Ecke finden kann, schon immer geliebt, aber jetzt dekonstruieren Köche wie Enrique Olvera klassische Rezepte und bringen sie auf die nächste Ebene.
+                                  Dann gibt es die Kunstszene, in der es nicht mehr nur um ikonische Künstler des 20. Jahrhunderts wie Frida Kahlo und Diego Rivera geht, sondern um neue Kunstinstitutionen von Weltklasse wie das Soumaya und das Museo Jumex, die beide in den letzten fünf Jahren entstanden sind. Auf jedan Fall nennenswerte Zwischenziele.",
                     place: "Mexiko-City",
                     time: " 10 Tage",
+                    pic: URL(Mexico.jpg),
                 },
                 {
                     title: "Das Herz des Orients",
@@ -58,6 +60,7 @@ class DatabaseFactory {
                     description: "Unglaubliche Vielfalt von Kulturen vereint in einer Stadt. Die Istiklal caddesi ist geschmückt von Kirchen, Moscheen und weiteren historischen Denkmälern. Alles vereint auf engstem Raum. Eine Bootfahrt über die Meerenge des Bosborus und der Besuch der Kiz Kullesi ist atemberaubend und ebenfalls zu empfehlen. Der Grand Bazar mit seinen bunten Gewürzen und multikulturellen Käufern ist auf jeden Fall Instagram würdig.",
                     place: "Istanbul - Türkei",
                     time: "2 Wochen",
+                    pic: URL(istiklal_caddesi.jpg),
                 },
                 {
                     title: "Zwischen den Wolkenkratzern in New York",
@@ -65,6 +68,7 @@ class DatabaseFactory {
                     description: "The Edge Aussichtsplattform: die höchste offene Plattform in New York, mein absolutes Highlight, aber leider sehr voll. Der Blick von der Aussichtsplattform des Empire State Buildings ist atemberaubend und etwas, was du sicherlich nicht so schnell vergessen wirst. Ein absolutes Muss bei einem Besuch in New York! Um auch hier längere Wartezeiten zu vermeiden am besten früh am morgen schon kommen. Die Resie war viel zu kurz, nehmt euch für eine so große, überweltigende Stadt auf jeden Fall mehr Zeit.",
                     place: "New York - USA",
                     time: "5 Tage",
+                    pic: URL(newYork.jpg),
                 },
                 {
                     title: "In der Weltmetropole Tokio",
@@ -72,6 +76,7 @@ class DatabaseFactory {
                     description: "Hier triffen eine hochmoderne Stadt mit der neuesten Technik und einer grandiosen Architektur auf eine langwierige Kultur mit buddhistischen Tempeln und einem ausgeprägten Glauben. Eine Stadt mit so vielen Kontrasten und Sehenswürdigkeiten! Mein absolutes Highlight der Reise:die Shibuya Kreuzung. Überall sind leuchtende Werbetafeln, riesige Hochhäuser, unzählige, teils skurril gekleidete Japaner und Touristen und mittendrin man selbst in der Menge verloren. Noch nie habe ich mich so klein gefühlt! Ein unvergessliches Erlebnis.",
                     place: "Tokio Japan",
                     time: "1 Wochen",
+                    pic: URL(tokio_tempel.jpg),
                 },
 
             ]);
