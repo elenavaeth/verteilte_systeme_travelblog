@@ -1,12 +1,12 @@
 "use strict";
 
 import Page from "../page.js";
-import HtmlTemplate from "./wish-list.html";
+import HtmlTemplate from "./check-list.html";
 
 /**
  * Klasse WishList: Stellt die Wunschlistenübersicht zur Verfügung
  */
-export default class WishList extends Page {
+export default class CheckList extends Page {
     /**
      * Konstruktor.
      *
@@ -31,10 +31,10 @@ export default class WishList extends Page {
     async init() {
         // HTML-Inhalt nachladen
         await super.init();
-        this._title = "Wunschliste";
+        this._title = "Checkliste";
 
         // Platzhalter anzeigen, wenn noch keine Daten vorhanden sind
-        let data = await this._app.backend.fetch("GET", "/wish");
+        let data = await this._app.backend.fetch("GET", "/check");
         this._emptyMessageElement = this._mainElement.querySelector(".empty-placeholder");
 
         if (data.length) {
@@ -84,7 +84,7 @@ export default class WishList extends Page {
 
         // Datensatz löschen
         try {
-            this._app.backend.fetch("DELETE", `/wish/${id}`);
+            this._app.backend.fetch("DELETE", `/check/${id}`);
         } catch (ex) {
             this._app.showException(ex);
             return;
@@ -98,29 +98,5 @@ export default class WishList extends Page {
         } else {
             this._emptyMessageElement.classList.remove("hidden");
         }
-    }
-        /**
-     * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-     * die Adresse löschen will und löscht diese dann.
-     *
-     * @param {Integer} id ID des zu löschenden Datensatzes
-     */
-    async _addToChecklist(id) {
-        // Sicherheitsfrage zeigen
-        let answer = confirm("Wurde die ausgewählte Reise abgeschlossen?");
-        if (!answer) return;
-    
-        // Datensatz speichern
-        let dataset = await this._app.backend.fetch("GET", `/wish/${id}`);
-    
-        try {
-            await this._app.backend.fetch("POST", `/check`, {body: dataset});
-        } catch (ex) {
-            this._app.showException(ex);
-            return;
-        }
-    
-        // Navigiere zur Wunschliste
-        location.hash = "#/check";
     }
 };

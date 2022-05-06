@@ -36,6 +36,10 @@ class App {
             {
                 url: ".wish",
                 show: () => this._gotoWishlist()
+            },
+            {
+                url: ".check",
+                show: () => this._gotoChecklist()
             }
         ]);
 
@@ -130,6 +134,19 @@ class App {
             this.showException(ex);
         }
     }
+    async _gotoChecklist() {
+        try {
+            // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports
+            let {default: CheckList} = await import("./check-list/check-list.js");
+
+            let page = new CheckList(this);
+            await page.init();
+            this._showPage(page, "check");
+        } catch (ex) {
+            this.showException(ex);
+        }
+    }
+    
 
 
     /**

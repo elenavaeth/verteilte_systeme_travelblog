@@ -40,6 +40,11 @@ export default class RootController {
                 _naem: "wish",
                 query: {url: "wish", method: "GET", query_params: ["search", "title", "author", "description", "place", "time"]},
                 create: {url: "/wish", method: "POST"}
+            },
+            {
+                _neam: "check",
+                query: {url: "check", method: "GET", query_params: ["search", "title", "author", "description", "place", "time"]},
+                create: {url: "/check", method: "POST"}
             }
         ]);
 
