@@ -49,7 +49,7 @@ export default class WishList extends Page {
         templateElement.remove();
 
         for (let index in data) {
-            // Platzhalter ersetzen
+            // Platzhalter ersetzen durch den ersten Wunsch
             let dataset = data[index];
             let html = templateHtml;
 
@@ -110,17 +110,17 @@ export default class WishList extends Page {
         // Sicherheitsfrage zeigen
         let answer = confirm("Wurde die ausgewählte Reise abgeschlossen?");
         if (!answer) return;
-    
+
         // Datensatz speichern
         let dataset = await this._app.backend.fetch("GET", `/wish/${id}`);
-    
+
         try {
             await this._app.backend.fetch("POST", `/check`, {body: dataset});
         } catch (ex) {
             this._app.showException(ex);
             return;
         }
-    
+
         // Navigiere zur Wunschliste
         location.hash = "#/check";
     }

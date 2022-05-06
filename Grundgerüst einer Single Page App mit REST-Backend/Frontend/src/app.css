@@ -18,18 +18,19 @@ html, body {
     padding: 0;
     margin: 0;
 }
-
+/* Schriftart und -größe */
 html {
     font-family: 'Source Serif Pro', serif;
     font-size: 10pt;
     line-height: 1.6;
-    
+
 }
 
 .hidden {
     display: none;
 }
-
+/* Hintergrund (unteranderem Festlegen der Karte als Hintergrundbild)
+*/
 @media (min-width: 40em) {
     html {
         /* http://bg.siteorigin.com/ */
@@ -40,8 +41,7 @@ html {
     }
 
     body {
-        
-        
+
         font-size: 13px;
         max-width: 70em;
         margin: 0 auto;
@@ -72,7 +72,7 @@ nav a,
 nav a:visited,
 nav a:hover {
     color: rgb(255, 251, 251);
-    
+
 
     display: inline-flex;
     padding: 1em;

@@ -5,9 +5,9 @@ import {wrapHandler} from "../utils.js";
 import RestifyError from "restify-errors";
 
 /**
- * HTTP-Controller-Klasse für Adressbucheinträge. Diese Klasse registriert
+ * HTTP-Controller-Klasse für Reiseeinträge. Diese Klasse registriert
  * alle notwendigen URL-Handler beim Webserver für einen einfachen REST-
- * Webservice zum Lesen und Schreiben von Adressen.
+ * Webservice zum Lesen und Schreiben von Reisen.
  */
 export default class TravelController {
     /**
@@ -34,7 +34,7 @@ export default class TravelController {
     /**
      * Hilfsmethode zum Einfügen von HATEOAS-Links in einen Datensatz.
      * Dem Datensatz wird ein Attribut `_links` gemäß der OpenAPI-Spezifikation
-     * hinzugefügt, damit ein Client erkennen kann, wie er die Entität lesen,
+     * hinzugefügt, damit ein Client erkennen kann, wie er die Entität (Reise) lesen,
      * ändern oder löschen kann.
      *
      * @param {Object} entity Zu verändernder Datensatz.

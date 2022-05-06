@@ -33,7 +33,6 @@ await DatabaseFactory.init(config.mongodb);
  * SERVER STARTEN
  * =============================================================================*/
 const server = restify.createServer({
-    // Bei Bedarf notwendige Serverkonfiguration hier erweitern.
     // Vgl. http://restify.com/docs/server-api/#createserver
 });
 
@@ -60,8 +59,8 @@ server.on("restifyError", function(req, res, err, callback) {
     return callback();
 });
 
-// CORS-Header setzen, um Zugriffe von anderen URLs außer der Backend-URL zuzulassen.
-// Außerdem OPTIONS-Anfragen (sog. CORS-Preflight) immer mit Status 200 beantworten,
+// CORS-Header gesetzt, um Zugriffe von anderen URLs außer der Backend-URL zuzulassen.
+// Außerdem OPTIONS-Anfragen (sog. CORS-Preflight) immer mit Status 200 beantwortet,
 // damit die Browser ändernde Aufrufe tatsächlich durchführen.
 server.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", req.header("Origin"));

@@ -49,7 +49,7 @@ export default class CheckList extends Page {
         templateElement.remove();
 
         for (let index in data) {
-            // Platzhalter ersetzen
+            // Platzhalter ersetzen durch als Wunsch makierten Listeneintrag
             let dataset = data[index];
             let html = templateHtml;
 
@@ -72,8 +72,8 @@ export default class CheckList extends Page {
         }
     }
     /**
-     * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-     * die Adresse löschen will und löscht diese dann.
+     * Löschen des übergebenen Wunsches. Zeigt einen Popup, ob der Anwender
+     * den Wunsch löschen will und löscht diese dann.
      *
      * @param {Integer} id ID des zu löschenden Datensatzes
      */

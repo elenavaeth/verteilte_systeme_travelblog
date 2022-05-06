@@ -8,7 +8,7 @@ import "./app.css";
  * Hauptklasse App: Steuert die gesamte Anwendung
  *
  * Diese Klasse erzeugt den Single Page Router zur Navigation innerhalb
- * der Anwendung und ein Datenbankobjekt zur Verwaltung der Adressliste.
+ * der Anwendung und ein Datenbankobjekt zur Verwaltung der Reiseliste.
  * Darüber hinaus beinhaltet sie verschiedene vom Single Page Router
  * aufgerufene Methoden, zum Umschalten der aktiven Seite.
  */
@@ -83,7 +83,7 @@ class App {
         }
     }
     /**
-     * Seite zum Anlegen einer neuen Adresse anzeigen.  Wird vom Single Page
+     * Seite zum Anlegen einer neuen Reise anzeigen.  Wird vom Single Page
      * Router aufgerufen.
      */
     async _gotoNew() {
@@ -100,7 +100,7 @@ class App {
     }
 
     /**
-     * Seite zum Bearbeiten einer Adresse anzeigen.  Wird vom Single Page
+     * Seite zum Bearbeiten einer Reise anzeigen.  Wird vom Single Page
      * Router aufgerufen.
      *
      * @param {Number} id ID der zu bearbeitenden Adresse
@@ -146,7 +146,7 @@ class App {
             this.showException(ex);
         }
     }
-    
+
 
 
     /**

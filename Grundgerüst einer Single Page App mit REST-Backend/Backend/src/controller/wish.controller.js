@@ -5,9 +5,9 @@ import {wrapHandler} from "../utils.js";
 import RestifyError from "restify-errors";
 
 /**
- * HTTP-Controller-Klasse für Adressbucheinträge. Diese Klasse registriert
+ * HTTP-Controller-Klasse für die Wunschliste. Diese Klasse registriert
  * alle notwendigen URL-Handler beim Webserver für einen einfachen REST-
- * Webservice zum Lesen und Schreiben von Adressen.
+ * Webservice zum Lesen und Schreiben von Wunschzielen.
  */
 export default class WishController {
     /**
@@ -20,11 +20,11 @@ export default class WishController {
         this._service = new WishService();
         this._prefix = prefix;
 
-        // Collection: Reisen
+        // Collection: Wunsch
         server.get(prefix, wrapHandler(this, this.search));
         server.post(prefix, wrapHandler(this, this.create));
 
-        // Entity: Reisen
+        // Entity: Wunsch
         server.get(prefix + "/:id", wrapHandler(this, this.read));
         server.put(prefix + "/:id", wrapHandler(this, this.update));
         server.patch(prefix + "/:id", wrapHandler(this, this.update));
@@ -34,7 +34,7 @@ export default class WishController {
     /**
      * Hilfsmethode zum Einfügen von HATEOAS-Links in einen Datensatz.
      * Dem Datensatz wird ein Attribut `_links` gemäß der OpenAPI-Spezifikation
-     * hinzugefügt, damit ein Client erkennen kann, wie er die Entität lesen,
+     * hinzugefügt, damit ein Client erkennen kann, wie er die Entität (Wunsch) lesen,
      * ändern oder löschen kann.
      *
      * @param {Object} entity Zu verändernder Datensatz.
