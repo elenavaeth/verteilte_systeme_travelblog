@@ -37,9 +37,7 @@ services:
         environment:
             MONGO_INITDB_ROOT_USERNAME: dbuser
             MONGO_INITDB_ROOT_PASSWORD: dbpass
-        volumes:
-            - dbdata:/data/db
-            - dbconfig:/data/configdb
+      
 
     # Admin-GUI für MongoDB
     mongo-gui:
@@ -81,6 +79,4 @@ services:
         working_dir: /app
         command: sh -c "npm i; npm start"
 
-volumes:
-    dbdata:
-    dbconfig:
+
