@@ -9,7 +9,9 @@
 
 /**** TODO: Stylesheet überarbeiten ****/
 
-@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap');
+
 
 /* ALLGEMEINES */
 html, body {
@@ -18,7 +20,7 @@ html, body {
 }
 
 html {
-    font-family: "Rubik", sans-serif;
+    font-family: 'Source Serif Pro', serif;
     font-size: 10pt;
     line-height: 1.6;
 }
@@ -66,7 +68,7 @@ nav {
 nav a,
 nav a:visited,
 nav a:hover {
-    color: white;
+    color: rgb(190, 21, 21);
     text-decoration: none;
 
     display: inline-flex;
