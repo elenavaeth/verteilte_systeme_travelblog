@@ -23,6 +23,7 @@ html {
     font-family: 'Source Serif Pro', serif;
     font-size: 10pt;
     line-height: 1.6;
+    
 }
 
 .hidden {
@@ -39,9 +40,10 @@ html {
     }
 
     body {
-    
+        
+        
         font-size: 13px;
-        max-width: 50em;
+        max-width: 70em;
         margin: 0 auto;
         margin-top: 4em;
         margin-bottom: 4em;
@@ -56,23 +58,25 @@ html {
 
 /* NAVIGATION */
 nav {
-    user-select: none;
+    user-select: auto;
 
     background-color: #143783;
-    color: white;
+    color: rgb(169, 185, 236);
 
     border: 0px solid #143783;
     border-bottom-width: 3px;
+    text-align: center
 }
 
 nav a,
 nav a:visited,
 nav a:hover {
-    color: rgb(190, 21, 21);
-    text-decoration: none;
+    color: rgb(255, 251, 251);
+    
 
     display: inline-flex;
     padding: 1em;
+    text-align: center
 }
 
 nav.non-interactive a:hover {
@@ -86,17 +90,19 @@ nav ul {
     margin-bottom: -2px;
 
     display: flex;
+    text-align: center
 }
 
 nav li.active {
-    background-color: #6b86c2;
+    background-color: #7695d8;
     border: 0px solid rgb(33, 146, 187);
     border-bottom-width: 3px;
 }
 
 nav li:hover {
-    background-color: #201f5e;
+    background-color: #35373b;
 
     border: 0px solid rgb(103, 197, 231);
     border-bottom-width: 3px;
+    text-align: center
 }

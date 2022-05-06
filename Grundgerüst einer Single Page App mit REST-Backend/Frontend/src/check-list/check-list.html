@@ -5,27 +5,32 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        
     }
 
     main li {
-        margin: 0;
+        margin: 5;
         padding: 1em;
         padding-bottom: 0.5em;
 
-        background-color: white;
-        transition: background-color 0.5s;
+        background-color: rgb(229, 231, 240);
+        transition: background-color 1s;
 
-        border: 0px solid lightgrey;
-        border-bottom-width: 1px;
+        border: 0px solid rgb(9, 22, 131);
+        border-bottom-width: 2px;
     }
 
     main li:hover {
-        background-color: #fafafa;
+        background-color: #dee5f0;
+        transition: background-color 0.5s;
     }
 
     main .title {
         font-size: 150%;
+        font-weight: bolder;
     }
+
+    
 
     /* AKTIONSBUTTONS */
     main .actions {
@@ -37,7 +42,7 @@
         padding: 0.5em;
         margin: 0.5em;
 
-        background-color: #e0e0e0;
+        background-color: #4c6079;
         transition: background-color 0.5s;
 
         flex: 1;
@@ -53,7 +58,7 @@
     }
 
     main .actions > div:hover {
-        background-color: #f0f0f0;
+        background-color: #1b3380;
         cursor: pointer;
     }
 </style>
@@ -73,17 +78,18 @@
             <div class="title">
                 $TITLE$
             </div>
-            <div class="author">
+            <div class="author", style=" font-weight: 700; font-size: 12px;">
                 $AUTHOR$
             </div>
-            <div class="description">
+            <div class="description", style="border: 4em;border-color: aqua;">
                 $DESCRIPTION$
             </div>
+            </br>
             <div class="place">
-                $PLACE$
+                📍 $PLACE$
             </div>
             <div class="time">
-                $TIME$
+                ⏳ $TIME$
             </div>
             <div class="actions">
                 <div class="action delete">
