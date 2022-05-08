@@ -134,6 +134,11 @@ class App {
             this.showException(ex);
         }
     }
+
+    /**
+     * Checkliste zum Anzeigen der abgeschlossenen Reisen. Wird vom Single Page Router
+     * aufgerufen.
+     */
     async _gotoChecklist() {
         try {
             // Dynamischer Import, vgl. https://javascript.info/modules-dynamic-imports

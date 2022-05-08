@@ -74,8 +74,8 @@ export default class PageList extends Page {
         }
     }
     /**
-     * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-     * die Adresse löschen will und löscht diese dann.
+     * Löschen der übergebenen Reise. Zeigt einen Popup, ob der Anwender
+     * die Reise löschen will und löscht diese dann.
      *
      * @param {Integer} id ID des zu löschenden Datensatzes
      */
@@ -103,8 +103,7 @@ export default class PageList extends Page {
     }
 
     /**
-     * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-     * die Adresse löschen will und löscht diese dann.
+     * Einfügen in die Wunschliste.
      *
      * @param {Integer} id ID des zu löschenden Datensatzes
      */

@@ -20,13 +20,6 @@ export default class WishList extends Page {
 
     /**
      * HTML-Inhalt und anzuzeigende Daten laden.
-     *
-     * HINWEIS: Durch die geerbte init()-Methode wird `this._mainElement` mit
-     * dem <main>-Element aus der nachgeladenen HTML-Datei versorgt. Dieses
-     * Element wird dann auch von der App-Klasse verwendet, um die Seite
-     * anzuzeigen. Hier muss daher einfach mit dem üblichen DOM-Methoden
-     * `this._mainElement` nachbearbeitet werden, um die angezeigten Inhalte
-     * zu beeinflussen.
      */
     async init() {
         // HTML-Inhalt nachladen
@@ -73,8 +66,8 @@ export default class WishList extends Page {
         }
     }
     /**
-     * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-     * die Adresse löschen will und löscht diese dann.
+     * Löschen des übergebenen Wunsches. Zeigt einen Popup, ob der Anwender
+     * den Wunsch löschen will und löscht diese dann.
      *
      * @param {Integer} id ID des zu löschenden Datensatzes
      */
@@ -101,10 +94,10 @@ export default class WishList extends Page {
         }
     }
         /**
-     * Löschen der übergebenen Adresse. Zeigt einen Popup, ob der Anwender
-     * die Adresse löschen will und löscht diese dann.
+     * Eine Kopie des Wunsches in die Checkliste einfügen. Ermöglicht dem Nutzer, seine abgeschlossenen Reisen
+     * aus der Wunschliste auszuwählen und in die Checkliste zu kopieren.
      *
-     * @param {Integer} id ID des zu löschenden Datensatzes
+     * @param {Integer} id ID des  Datensatzes
      */
     async _addToChecklist(id) {
         // Sicherheitsfrage zeigen
@@ -121,7 +114,7 @@ export default class WishList extends Page {
             return;
         }
 
-        // Navigiere zur Wunschliste
+        // Navigiere zur Checkliste
         location.hash = "#/check";
     }
 };

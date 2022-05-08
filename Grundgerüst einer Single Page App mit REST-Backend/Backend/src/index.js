@@ -103,7 +103,6 @@ new CheckController(server, "/check");
 
 // Server tatsächlich starten
 server.listen(config.port, config.host, function() {
-    //// TODO: Konsolenausgabe anpassen (Name des Services usw.) ////
     console.log();
     console.log("=============");
     console.log("Travelblog-Server");

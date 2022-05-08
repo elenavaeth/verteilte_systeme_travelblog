@@ -4,7 +4,7 @@ import Page from "../page.js";
 import HtmlTemplate from "./check-list.html";
 
 /**
- * Klasse WishList: Stellt die Wunschlistenübersicht zur Verfügung
+ * Klasse CheckList: Stellt die Checklistenübersicht zur Verfügung
  */
 export default class CheckList extends Page {
     /**
@@ -21,12 +21,6 @@ export default class CheckList extends Page {
     /**
      * HTML-Inhalt und anzuzeigende Daten laden.
      *
-     * HINWEIS: Durch die geerbte init()-Methode wird `this._mainElement` mit
-     * dem <main>-Element aus der nachgeladenen HTML-Datei versorgt. Dieses
-     * Element wird dann auch von der App-Klasse verwendet, um die Seite
-     * anzuzeigen. Hier muss daher einfach mit dem üblichen DOM-Methoden
-     * `this._mainElement` nachbearbeitet werden, um die angezeigten Inhalte
-     * zu beeinflussen.
      */
     async init() {
         // HTML-Inhalt nachladen
@@ -49,7 +43,7 @@ export default class CheckList extends Page {
         templateElement.remove();
 
         for (let index in data) {
-            // Platzhalter ersetzen durch als Wunsch makierten Listeneintrag
+            // Platzhalter ersetzen durch als abgeschlossene Reise makierten Listeneintrag
             let dataset = data[index];
             let html = templateHtml;
 
@@ -72,8 +66,8 @@ export default class CheckList extends Page {
         }
     }
     /**
-     * Löschen des übergebenen Wunsches. Zeigt einen Popup, ob der Anwender
-     * den Wunsch löschen will und löscht diese dann.
+     * Löschen der übergebenen abgeschlossenen Reise. Zeigt einen Popup, ob der Anwender
+     * die Reise löschen will und löscht diese dann.
      *
      * @param {Integer} id ID des zu löschenden Datensatzes
      */
